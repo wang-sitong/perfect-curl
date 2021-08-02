@@ -148,7 +148,7 @@ class PerfectCURL
         return $this;
     }
 
-    public function setHeader($headers){
+    public function setHeaders($headers){
         $this->header = $headers;
         return $this;
     }
