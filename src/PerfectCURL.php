@@ -55,11 +55,11 @@ class PerfectCURL
      * @param string $url www.baidu.com
      * @param string $contentType json,x-www-form-urlencoded
      * @param string $type get,post,put,delete
-     * @param array $params
-     * @param array $headers
-     * @param string $error
-     * @param string $httpInfo
-     * @param string $httpCode
+     * @param array $params []
+     * @param array $headers []
+     * @param string $error error
+     * @param string $httpInfo info message
+     * @param string $httpCode code status
      */
     public function __construct(string $url = '', string $contentType = 'json', string $type = 'get', array $params = [],array $headers = [],string $error = '',string $httpInfo = '',string $httpCode = '')
     {
@@ -120,7 +120,6 @@ class PerfectCURL
                         break;
                 }
                 curl_setopt($ch, CURLOPT_URL, $this->url);
-
                 break;
             case 'put':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
