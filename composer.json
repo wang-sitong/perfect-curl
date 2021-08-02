@@ -11,7 +11,7 @@
     "require": {
         "php": "^5.6|^7.0"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "license": "MIT",
     "keywords": [
         "curl",
