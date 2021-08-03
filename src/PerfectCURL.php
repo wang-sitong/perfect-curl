@@ -105,7 +105,7 @@ class PerfectCURL
         switch ($this->type) {
             case 'get':
                 if (is_array($this->params)) {
-                    $params = http_build_query($this->params);
+                    $this->params = http_build_query($this->params);
                 }
                 curl_setopt($ch, CURLOPT_URL, $this->url . '?' . $this->params);
                 break;
