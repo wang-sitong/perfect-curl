@@ -124,10 +124,12 @@ class PerfectCURL
             case 'put':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $this->params);
+                curl_setopt($ch, CURLOPT_URL, $this->url);
                 break;
             case 'delete':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $this->params);
+                curl_setopt($ch, CURLOPT_URL, $this->url);
                 break;
         }
         $response = curl_exec($ch);
