@@ -7,9 +7,19 @@
 >Elegant completion requirements
 
 ### Examples:
+
+```php 
+
+use PerfectCURL\PerfectCURL;
+//default get
+$request = new PerfectCURL();
+$request->setUrl('https://www.moedict.tw/a/好.json');
+$result = $request->start();
+```
+
 ```php
 use PerfectCURL\PerfectCURL;
-
+//post
 $curl = new PerfectCURL();
 $curl->setHeaders(["Authorization:Bearer " . 'efg',]);
 $curl->setUrl('https://www.google.com');
