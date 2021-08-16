@@ -145,6 +145,7 @@ class PerfectCURL
         $response = curl_exec($ch);
         if ($response === FALSE) {
             $this->error = json_encode(curl_error($ch));
+            curl_close($ch);
             return false;
         }
 
