@@ -25,11 +25,14 @@ $curl->setHeaders(["Authorization:Bearer " . 'efg',]);
 $curl->setUrl('https://www.google.com');
 $curl->setType("post");
 $curl->setContentType("json");
+$curl->setProxy("127.0.0.1:1234");
 $result = $curl->start();
 $code = $curl->getHttpCode();
 $info = $curl->getHttpInfo();
+$error = $curl->getError();
 var_dump($code);
 var_dump($info);
 var_dump($result);
+var_dump($error);
 
 

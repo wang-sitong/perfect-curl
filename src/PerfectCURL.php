@@ -34,6 +34,12 @@ class PerfectCURL
     protected $contentType;
 
     /**
+     * Proxy (127.0.0.1:9999) for the request.
+     * @var string
+     */
+    protected $proxy;
+
+    /**
      * error for the request.
      * @var string
      */
@@ -61,7 +67,7 @@ class PerfectCURL
      * @param string $httpInfo info message
      * @param string $httpCode code status
      */
-    public function __construct(string $url = '', string $contentType = 'json', string $type = 'get', array $params = [],array $headers = [],string $error = '',string $httpInfo = '',string $httpCode = '')
+    public function __construct(string $url = '', string $contentType = 'json', string $type = 'get', array $params = [],array $headers = [],string $error = '',string $httpInfo = '',string $httpCode = '',string $proxy = '')
     {
         $this->type = $type;
         $this->url = $url;
@@ -100,7 +106,11 @@ class PerfectCURL
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE); // 从证书中检查SSL加密算法是否存在'
         curl_setopt($ch, CURLINFO_HEADER_OUT, true); //TRUE 时追踪句柄的请求字符串，从 PHP 5.1.3 开始可用。这个很关键，就是允许你查看请求header
 
-//        curl_setopt($ch, CURLOPT_PROXY, Proxy::get()['http']);
+
+        if($this->proxy){
+            curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
+        }
+
 //		echo curl_getinfo($ch, CURLINFO_HEADER_OUT);\
         switch ($this->type) {
             case 'get':
@@ -167,6 +177,11 @@ class PerfectCURL
 
     public function setContentType($contentType){
         $this->contentType = $contentType;
+        return $this;
+    }
+
+    public function setProxy($proxy){
+        $this->proxy = $proxy;
         return $this;
     }
 
