@@ -6,11 +6,12 @@
 >支持各种请求模式，如get post put delete
 
 >Various request content types are supported like json and x-www-form-urlencoded
+> 
 >支持各种请求内容类型，如json和x-www-form-urlencoded
 
 >Elegant completion requirements
->优雅的完成需求
 > 
+>优雅的完成需求
 ### Examples:
 ### 举个例子
 ```php 
