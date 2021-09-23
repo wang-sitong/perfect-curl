@@ -84,15 +84,13 @@ class PerfectCURL
             "Content-type:application/json;",
             "Accept:application/json",
         ];
-        if ($this->header) {
-            $headers = $this->header;
-        }
-
         if ($this->contentType == 'x-www-form-urlencoded') {
 //			修改header
             $headers[0] = "array('Content-Type: application/x-www-form-urlencoded')";
         }
-
+        if ($this->header) {
+            $headers = $this->header;
+        }
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36');
