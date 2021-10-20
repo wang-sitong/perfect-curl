@@ -77,6 +77,7 @@ class PerfectCURL
         $this->error = $error;
         $this->httpInfo = $httpInfo;
         $this->httpCode = $httpCode;
+        $this->proxy = $proxy;
     }
 
     public function start(){
