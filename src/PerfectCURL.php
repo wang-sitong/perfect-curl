@@ -1,6 +1,6 @@
 <?php
+
 namespace PerfectCURL;
-use Exception;
 class PerfectCURL
 {
     /**
@@ -67,26 +67,26 @@ class PerfectCURL
      * @param string $httpInfo info message
      * @param string $httpCode code status
      */
-    public function __construct(string $url = '', string $contentType = 'json', string $type = 'get', array $params = [],array $headers = [],string $error = '',string $httpInfo = '',string $httpCode = '',string $proxy = '')
+    public function __construct(string $url = '', string $contentType = 'json', string $type = 'get', array $params = [], array $headers = [], string $error = '', string $httpInfo = '', string $httpCode = '', string $proxy = '')
     {
-        $this->type = $type;
-        $this->url = $url;
-        $this->contentType = $contentType;
-        $this->params = $params;
-        $this->header = $headers;
-        $this->error = $error;
-        $this->httpInfo = $httpInfo;
-        $this->httpCode = $httpCode;
-        $this->proxy = $proxy;
+        $this->setType($type);
+        $this->setUrl($url);
+        $this->setContentType($contentType);
+        $this->setParams($params);
+        $this->setHeaders($headers);
+        $this->setError($error);
+        $this->setHttpInfo($httpInfo);
+        $this->setHttpCode($httpCode);
+        $this->setProxy($proxy);
     }
 
-    public function start(){
+    public function start()
+    {
         $headers = [
             "Content-type:application/json;",
             "Accept:application/json",
         ];
         if ($this->contentType == 'x-www-form-urlencoded') {
-//			修改header
             $headers[0] = "array('Content-Type: application/x-www-form-urlencoded')";
         }
         if ($this->header) {
@@ -106,11 +106,10 @@ class PerfectCURL
         curl_setopt($ch, CURLINFO_HEADER_OUT, true); //TRUE 时追踪句柄的请求字符串，从 PHP 5.1.3 开始可用。这个很关键，就是允许你查看请求header
 
 
-        if($this->proxy){
+        if ($this->proxy) {
             curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
         }
 
-//		echo curl_getinfo($ch, CURLINFO_HEADER_OUT);\
         switch ($this->type) {
             case 'get':
                 if (is_array($this->params)) {
@@ -160,40 +159,74 @@ class PerfectCURL
         return $this;
     }
 
-    public function setHeaders($headers){
+    public function setHeaders($headers)
+    {
         $this->header = $headers;
         return $this;
     }
 
-    public function setType($type){
+    public function setType($type)
+    {
         $this->type = $type;
         return $this;
     }
 
-    public function setParams($params){
+    public function setParams($params)
+    {
         $this->params = $params;
         return $this;
     }
 
-    public function setContentType($contentType){
+    public function setContentType($contentType)
+    {
         $this->contentType = $contentType;
         return $this;
     }
 
-    public function setProxy($proxy){
+    public function setProxy($proxy)
+    {
         $this->proxy = $proxy;
         return $this;
     }
 
-    public function getHttpInfo(){
+    public function getProxy()
+    {
+        return $this->proxy;
+    }
+
+    public function setHttpInfo($httpInfo)
+    {
+        $this->httpinfo = $httpInfo;
+        return $this;
+    }
+
+    public function getHttpInfo()
+    {
         return $this->httpInfo;
     }
 
-    public function getHttpCode(){
+
+    public function setHttpCode($httpCode)
+    {
+        $this->httpCode = $httpCode;
+        return $this;
+    }
+
+    public function getHttpCode()
+    {
         return $this->httpCode;
     }
 
-    public function getError(){
+    public function setError($error)
+    {
+        $this->error = $error;
+        return $this;
+    }
+
+    public function getError()
+    {
         return $this->error;
     }
+
+
 }
