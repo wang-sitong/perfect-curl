@@ -1,15 +1,20 @@
 # wangsitong/perfect-curl
+
 [中文文档](./README_ZH.md)
+
 ### Easy for request,perfect for request</br>
->Support various request modes like get post put delete
-> 
 
->Various request content types are supported like json and x-www-form-urlencoded
-> 
-
->Elegant completion requirements
+> Support various request modes like get post put delete
 >
+
+> Various request content types are supported like json and x-www-form-urlencoded
+>
+
+> Elegant completion requirements
+>
+
 ### Examples:
+
 ```php 
 
 use PerfectCURL\PerfectCURL;

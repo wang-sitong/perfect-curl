@@ -1,13 +1,17 @@
 # wangsitong/perfect-curl
+
 [English](./README.md)
+
 ### 简单地请求,完美的请求
 
->支持各种请求模式，如get post put delete
+> 支持各种请求模式，如get post put delete
 
->支持各种请求内容类型，如json和x-www-form-urlencoded
+> 支持各种请求内容类型，如json和x-www-form-urlencoded
 
->优雅的完成需求
+> 优雅的完成需求
+
 ### 举个例子
+
 ```php 
 
 use PerfectCURL\PerfectCURL;
