@@ -25,19 +25,22 @@ var_dump($request);
 ```php
 use PerfectCURL\PerfectCURL;
 // post
-$curl = (new PerfectCURL())
-    ->setHeaders(["Authorization:Bearer " . 'efg',])
+$curl = new PerfectCURL();
+$result = $curl->setHeaders(["Authorization:Bearer " . 'efg',])
     ->setUrl('https://www.google.com')
     ->setType("post")
     ->setContentType("json")
     ->setProxy("127.0.0.1:1234")
     ->start();
+    
+var_dump($result);
+
 $code = $curl->getHttpCode();
 $info = $curl->getHttpInfo();
 $error = $curl->getError();
 var_dump($code);
 var_dump($info);
-var_dump($curl);
 var_dump($error);
+
 
 
