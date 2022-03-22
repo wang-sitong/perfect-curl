@@ -1,4 +1,5 @@
 # wangsitong/perfect-curl
+[English](./README.md)
 ### 简单地请求,完美的请求
 
 >支持各种请求模式，如get post put delete
