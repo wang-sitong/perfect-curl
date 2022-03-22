@@ -16,10 +16,10 @@
 
 use PerfectCURL\PerfectCURL;
 // default get
-$request = (new PerfectCURL())
+$result = (new PerfectCURL())
     ->setUrl('https://www.moedict.tw/a/好.json')
     ->start();
-var_dump($request);
+var_dump($result);
 ```
 
 ```php
