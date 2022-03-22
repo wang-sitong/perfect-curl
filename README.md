@@ -18,27 +18,28 @@
 
 use PerfectCURL\PerfectCURL;
 //default get
-$request = new PerfectCURL();
-$request->setUrl('https://www.moedict.tw/a/好.json');
-$result = $request->start();
+$request = (new PerfectCURL())
+    ->setUrl('https://www.moedict.tw/a/好.json')
+    ->start();
+var_dump($request);
 ```
 
 ```php
 use PerfectCURL\PerfectCURL;
 //post
-$curl = new PerfectCURL();
-$curl->setHeaders(["Authorization:Bearer " . 'efg',]);
-$curl->setUrl('https://www.google.com');
-$curl->setType("post");
-$curl->setContentType("json");
-$curl->setProxy("127.0.0.1:1234");
-$result = $curl->start();
+$curl = (new PerfectCURL())
+    ->setHeaders(["Authorization:Bearer " . 'efg',])
+    ->setUrl('https://www.google.com')
+    ->setType("post")
+    ->setContentType("json")
+    ->setProxy("127.0.0.1:1234")
+    ->start();
 $code = $curl->getHttpCode();
 $info = $curl->getHttpInfo();
 $error = $curl->getError();
 var_dump($code);
 var_dump($info);
-var_dump($result);
+var_dump($curl);
 var_dump($error);
 
 
